@@ -12,6 +12,37 @@ permalink: /api
 https://aliiot.on-bright.com	为测试域名
 https://alicloud.on-bright.com	为生产域名
 
+## 登录
+
+| 请求，method=POST|url=/oauth/token |param:body |
+| --------   | -----:  | :----:  |
+| 参数      | 参数类型   |   说明     |
+| 响应数据        |   响应数据类型   |   说明   |
+| access_token        |   String   |      |
+| token_type        |   String   |       |
+| expires_in        |   int   |      |
+| scope        |   String   |     域  |
+
+##### 返回信息结构体
+```html
+{
+    "access_token": "1b3494a4-a18a-4b24-8e57-a12d52c1afed",
+    "token_type": "bearer",
+    "expires_in": 516642,
+    "scope": "company"
+}
+```
+##### 请求链路
+```html
+curl -X POST \
+  'https://aliiot.on-bright.com/oauth/token?grant_type=client_credentials' \
+  -H 'Accept: */*' \
+  -H 'Authorization: Basic VGVuY2VudDpUZW5jZW50' \
+  -H 'Cache-Control: no-cache' \
+  -H 'Connection: keep-alive' \
+  -H 'Content-Type: application/json' \
+  -H 'Host: aliiot.on-bright.com' \
+```
 
 ## 添加obox
 
