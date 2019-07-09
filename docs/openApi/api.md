@@ -46,7 +46,7 @@ curl -X POST \
 
 ## 添加obox
 
-| 请求，method=POST|url=/consumer/open/add_obox |param:body |
+| 请求，method=POST|url=/consumer/open/obox |param:body |
 | --------   | -----:  | :----:  |
 | 参数      | 参数类型   |   说明     |
 | access_token        |   String   |   token（公司专属）   |
