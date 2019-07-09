@@ -1,7 +1,7 @@
 ---
 
 title: API 文档
-permalink: /API
+permalink: /docs/API
 
 ---
 
