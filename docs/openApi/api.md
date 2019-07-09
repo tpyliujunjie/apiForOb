@@ -13,6 +13,7 @@ https://alicloud.on-bright.com	为生产域名
 
 
 ## 添加obox
+
 | 请求，method=POST|url=/consumer/open/add_obox |param:body |
 | --------   | -----:  | :----:  |
 | 参数      | 参数类型   |   说明     |
@@ -30,7 +31,9 @@ https://alicloud.on-bright.com	为生产域名
 | message        |   String   |   消息   |
 | status        |   int   |   消息类型   |
 | data        |   json   |    data |
+
 ##### 返回信息结构体
+
 ```html
 {
 	"message": "add success",
@@ -40,7 +43,9 @@ https://alicloud.on-bright.com	为生产域名
 	}
 }
 ```
+
 ##### 请求示例body结构体
+
 ```html
 {
 	"uniqueKey":"fasdfsdfasd",
@@ -54,7 +59,9 @@ https://alicloud.on-bright.com	为生产域名
 	"scene_config": []
 }
 ```
+
 ##### 请求链路
+
 ```html
 curl -X POST \
   'https://aliiot.on-bright.com/consumer/open/add_obox?access_token=1b3494a4-a18a-4b24-8e57-a12d52c1afed' \
@@ -96,14 +103,18 @@ curl -X POST \
 | deviceChildType        |   String   |   设备子类型（非必选）   |
 | serialId        |   String   |   设备序列号（非必选）   |
 | timeout        |   String   |   超时时间（必选）   |
+
 ##### 请求示例body结构体
+
 ```html
 {
 	"uniqueKey":"fasdfsdfasd",
 	"oboxSerialId": "c033000000"
 }
 ```
+
 ##### 请求链路
+
 ```html
 curl -X POST \
   'https://aliiot.on-bright.com/consumer/open/search_new_device?access_token=1b3494a4-a18a-4b24-8e57-a12d52c1afed' \
