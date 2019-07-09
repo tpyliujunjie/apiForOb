@@ -231,7 +231,7 @@ curl -X POST \
 | endTime        |   String   |   结束时间（必选）   |
 | times        |   int   |   次数（必选）   |
 | mobile        |   String   |   电话号码（非必选）   |
-| pin        |   int   |   pin码（非必选）   |
+| pin        |   int   |   pin码（必选）   |
 | isMax        |   String   |   isMax最小值为0,为有限次数;isMax最大值为1,为无限次数   |
 | 响应数据        |   响应数据类型   |   说明   |
 | message        |   String   |   消息   |
