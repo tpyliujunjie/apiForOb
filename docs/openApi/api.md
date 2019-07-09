@@ -1,4 +1,12 @@
- # OpenAPI接口文档
+---
+
+title: API 文档
+perlink: /API
+
+---
+
+
+# OpenAPI接口文档
 
 https://aliiot.on-bright.com	为测试域名
 https://alicloud.on-bright.com	为生产域名
