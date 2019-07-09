@@ -93,6 +93,7 @@ curl -X POST \
 ```
 
 ## 扫描设备
+
 | 请求，method=POST|url=/consumer/open/search_new_device |param:body |
 | --------   | -----:  | :----:  |
 | 参数      | 参数类型   |   说明     |
