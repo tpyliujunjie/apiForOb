@@ -14,9 +14,13 @@ https://alicloud.on-bright.com	为生产域名
 
 ## 添加obox
 
-| 请求，method=POST|url=/consumer/open/add_obox |param:body |
-| --------   | -----:  | :----:  |
+Request Method:POST
+urlPath: /consumer/open/add_obox
+content-type: application/json
+HttpBody:
+
 | 参数      | 参数类型   |   说明     |
+| --------   | -----:  | :----:  |
 | access_token        |   String   |   token（公司专属）   |
 | device_config        |   list   |   设备清单（非必选）   |
 | group_config        |   list   |   组清单（非必选）   |
