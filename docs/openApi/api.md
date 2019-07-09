@@ -6,6 +6,7 @@ permalink: /api
 ---
 
 
+
 # OpenAPI接口文档
 
 https://aliiot.on-bright.com	为测试域名
@@ -33,7 +34,6 @@ https://alicloud.on-bright.com	为生产域名
 | data        |   json   |    data |
 
 ##### 返回信息结构体
-
 ```html
 {
 	"message": "add success",
@@ -43,9 +43,7 @@ https://alicloud.on-bright.com	为生产域名
 	}
 }
 ```
-
 ##### 请求示例body结构体
-
 ```html
 {
 	"uniqueKey":"fasdfsdfasd",
@@ -59,9 +57,7 @@ https://alicloud.on-bright.com	为生产域名
 	"scene_config": []
 }
 ```
-
 ##### 请求链路
-
 ```html
 curl -X POST \
   'https://aliiot.on-bright.com/consumer/open/add_obox?access_token=1b3494a4-a18a-4b24-8e57-a12d52c1afed' \
@@ -105,17 +101,21 @@ curl -X POST \
 | serialId        |   String   |   设备序列号（非必选）   |
 | timeout        |   String   |   超时时间（必选）   |
 
+##### 返回信息结构体
+```html
+{
+	"message": "add success",
+	"status": 201,
+}
+```
 ##### 请求示例body结构体
-
 ```html
 {
 	"uniqueKey":"fasdfsdfasd",
 	"oboxSerialId": "c033000000"
 }
 ```
-
 ##### 请求链路
-
 ```html
 curl -X POST \
   'https://aliiot.on-bright.com/consumer/open/search_new_device?access_token=1b3494a4-a18a-4b24-8e57-a12d52c1afed' \
@@ -135,5 +135,165 @@ curl -X POST \
   -d '{
 	"uniqueKey":"fasdfsdfasd",
 	"oboxSerialId": "c033000000"
+}'
+```
+## 添加门锁临时用户
+
+| 请求，method=POST|url=/consumer/open/intelligentRemoteUser |param:body |
+| --------   | -----:  | :----:  |
+| 参数      | 参数类型   |   说明     |
+| access_token        |   String   |   token（公司专属）   |
+| uniqueKey        |   String   |   第三方唯一用户标识（必选）   |
+| serialId        |   String   |   门锁序列号（必选）   |
+| nickName        |   String   |   昵称（必选）   |
+| startTime        |   String   |   开始时间（必选）   |
+| endTime        |   String   |   结束时间（必选）   |
+| times        |   int   |   次数（必选）   |
+| mobile        |   String   |   电话号码（非必选）   |
+| isMax        |   String   |   isMax最小值为0,为有限次数;isMax最大值为1,为无限次数   |
+| 响应数据        |   响应数据类型   |   说明   |
+| message        |   String   |   消息   |
+| status        |   int   |   消息类型   |
+| data        |   json   |    data |
+
+##### 返回信息结构体
+```html
+{
+	"message": "add success",
+	"status": 201,
+	"data": {
+		"remoteUser":{
+			"serialId":"dfsfdsfsdfs",
+			"nickName":"fsde",
+			"pin":11,
+			"start":"2019-01-11 11:12:23",
+			"end":"2019-11-11 11:12:23",
+			"isEnd":0,
+			"times":1,
+			"useTimes":0,
+			"mobile":"15879618946",
+			"pwd":"621112345",
+			"isMax":0,
+			"timeLeft":"10"
+		}
+	}
+}
+```
+##### 请求示例body结构体
+```html
+{
+	"uniqueKey":"fasdfsdfasd",
+	"nickName": "呃呃",
+	"startTime": "1550573820000",
+	"endTime": "1550841360000",
+	"times": 1,
+	"mobile": "15879618946",
+	"isMax":0
+}
+```
+##### 请求链路
+```html
+curl -X POST \
+  'https://aliiot.on-bright.com/consumer/open/intelligentRemoteUser?access_token=1b3494a4-a18a-4b24-8e57-a12d52c1afed' \
+  -H 'Accept: */*' \
+  -H 'Authorization: Basic VGVuY2VudDpUZW5jZW50' \
+  -H 'Cache-Control: no-cache' \
+  -H 'Connection: keep-alive' \
+  -H 'Content-Type: application/json' \
+  -H 'Host: aliiot.on-bright.com' \
+  -H 'Postman-Token: 20dbc811-e4f7-4fb9-a526-4df7a9c2ada9,15e15c74-1d63-455f-991a-b4baf028bf53' \
+  -H 'User-Agent: PostmanRuntime/7.15.0' \
+  -H 'accept-encoding: gzip, deflate' \
+  -H 'cache-control: no-cache' \
+  -H 'content-length: 136' \
+  -H 'cookie: JSESSIONID=5BC8BA7B9382E508E79179CDD84F7C1A' \
+  -b JSESSIONID=5BC8BA7B9382E508E79179CDD84F7C1A \
+  -d '{
+	"uniqueKey":"fasdfsdfasd",
+	"nickName": "呃呃",
+	"startTime": "1550573820000",
+	"endTime": "1550841360000",
+	"times": 1,
+	"mobile": "15879618946",
+	"isMax":0
+}'
+```
+## 更新门锁临时用户
+
+| 请求，method=PUT|url=/consumer/open/intelligentRemoteUser |param:body |
+| --------   | -----:  | :----:  |
+| 参数      | 参数类型   |   说明     |
+| access_token        |   String   |   token（公司专属）   |
+| uniqueKey        |   String   |   第三方唯一用户标识（必选）   |
+| serialId        |   String   |   门锁序列号（必选）   |
+| nickName        |   String   |   昵称（必选）   |
+| startTime        |   String   |   开始时间（必选）   |
+| endTime        |   String   |   结束时间（必选）   |
+| times        |   int   |   次数（必选）   |
+| mobile        |   String   |   电话号码（非必选）   |
+| pin        |   int   |   pin码（非必选）   |
+| isMax        |   String   |   isMax最小值为0,为有限次数;isMax最大值为1,为无限次数   |
+| 响应数据        |   响应数据类型   |   说明   |
+| message        |   String   |   消息   |
+| status        |   int   |   消息类型   |
+| data        |   json   |    data |
+
+
+##### 返回信息结构体
+```html
+{
+	"message": "update success",
+	"status": 205,
+	"data": {
+		"pwd":"621012345",
+		"remoteUser":{
+			"serialId":"dfsfdsfsdfs",
+			"nickName":"fsde",
+			"pin":11,
+			"start":"2019-01-11 11:12:23",
+			"end":"2019-11-11 11:12:23",
+			"isEnd":0,
+			"times":1,
+			"useTimes":0,
+			"mobile":"15879618946",
+			"pwd":"621112345",
+			"isMax":0,
+			"timeLeft":"10"
+		}
+	}
+}
+```
+##### 请求示例body结构体
+```html
+{
+	"uniqueKey":"fasdfsdfasd",
+	"nickName": "呃呃",
+	"startTime": "1550573820000",
+	"endTime": "1550841360000",
+	"times": 1,
+	"mobile": "15879618946",
+	"isMax":0，
+	"pin":10
+}
+```
+##### 请求链路
+```html
+curl -X PUT \
+  'https://aliiot.on-bright.com/consumer/open/intelligentRemoteUser?access_token=1b3494a4-a18a-4b24-8e57-a12d52c1afed' \
+  -H 'Accept: */*' \
+  -H 'Authorization: Basic VGVuY2VudDpUZW5jZW50' \
+  -H 'Cache-Control: no-cache' \
+  -H 'Connection: keep-alive' \
+  -H 'Content-Type: application/json' \
+  -H 'Host: aliiot.on-bright.com' \
+  -d '{
+	"uniqueKey":"fasdfsdfasd",
+	"nickName": "呃呃",
+	"startTime": "1550573820000",
+	"endTime": "1550841360000",
+	"times": 1,
+	"mobile": "15879618946",
+	"isMax":0,
+	"pin":10
 }'
 ```
