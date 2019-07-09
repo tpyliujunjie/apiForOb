@@ -1,6 +1,7 @@
 ---
 
 title: API 文档
+permalink: /api
 
 ---
 
