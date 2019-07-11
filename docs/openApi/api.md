@@ -44,6 +44,66 @@ curl -X POST \
   -H 'Host: aliiot.on-bright.com' \
 ```
 
+## 注册ali设备
+
+| 请求，method=POST|url=/consumer/open/registAliDev |param:body |
+| --------   | -----:  | :----:  |
+| 参数      | 参数类型   |   说明     |
+| access_token        |   String   |   token（公司专属）   |
+| uniqueKey        |   String   |   第三方唯一用户标识（必选）   |
+| type        |   String   |    （必选）   |
+| zone        |   String   |    （必选）   |
+| 响应数据        |   响应数据类型   |   说明   |
+| message        |   String   |   消息   |
+| status        |   int   |   消息类型   |
+| data        |   json   |    data |
+| data数据名称        |   data数据类型   |   说明   |
+| kitCenter        |   String   |    地域   |
+| deviceName        |   String   |    设备名称   |
+| productKey        |   String   |    productKey   |
+| deviceSecret        |   String   |    设备Secret     |
+
+##### 返回信息结构体
+```html
+{
+	"message": "select success",
+	"status": 200,
+	"data": {
+		"kitCenter": "cn-shanghai",
+		"deviceName": "ocPn9W7ajRqTM167slbS",
+		"productKey": "b1eakXpQ1WU",
+		"deviceSecret": "DElmvK5NoQswe1pYtMXfzyciYuktcraU"
+	}
+}
+```
+##### 请求示例body结构体
+```html
+{
+	"uniqueKey":"fasdfsdfasd",
+	"type": "OBOX",
+	"zone": "Asia/Shanghai"
+}
+```
+##### 请求链路
+```html
+curl -X POST \
+  'https://aliiot.on-bright.com/consumer/open/registAliDev?access_token=1b3494a4-a18a-4b24-8e57-a12d52c1afed' \
+  -H 'Accept: */*' \
+  -H 'Authorization: Basic VGVuY2VudDpUZW5jZW50' \
+  -H 'Cache-Control: no-cache' \
+  -H 'Connection: keep-alive' \
+  -H 'Content-Type: application/json' \
+  -H 'Host: aliiot.on-bright.com' \
+  -H 'User-Agent: PostmanRuntime/7.15.0' \
+  -H 'accept-encoding: gzip, deflate' \
+  -H 'cache-control: no-cache' \
+  -H 'content-length: 136' \
+  -d '{
+	"uniqueKey":"fasdfsdfasd",
+	"type": "OBOX",
+	"zone": "Asia/Shanghai"
+}'
+```
 ## 添加obox
 
 | 请求，method=POST|url=/consumer/open/obox |param:body |
