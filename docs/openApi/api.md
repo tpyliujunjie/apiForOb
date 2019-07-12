@@ -67,8 +67,6 @@ curl -X POST \
 | 请求，method=POST|url=/consumer/open/registAliDev |param:body |
 | --------   | -----:  | :----:  |
 | 参数      | 参数类型   |   说明     |
-| access_token        |   String   |   token（公司专属）   |
-| uniqueKey        |   String   |   第三方唯一用户标识（必选）   |
 | type        |   String   |    （必选）   |
 | zone        |   String   |    （必选）   |
 | 响应数据        |   响应数据类型   |   说明   |
@@ -126,8 +124,6 @@ curl -X POST \
 | 请求，method=DELETE |url=/consumer/open/device |param:body |
 | --------   | -----:  | :----:  |
 | 参数      | 参数类型   |   说明     |
-| access_token        |   String   |   token（公司专属）   |
-| uniqueKey        |   String   |   第三方唯一用户标识（必选）   |
 | serialId        |   String   |   设备序列号（必选）   |
 | 响应数据        |   响应数据类型   |   说明   |
 | message        |   String   |   消息   |
@@ -170,8 +166,6 @@ curl -X DELETE \
 | 请求，method=POST|url=/consumer/open/obox |param:body |
 | --------   | -----:  | :----:  |
 | 参数      | 参数类型   |   说明     |
-| access_token        |   String   |   token（公司专属）   |
-| uniqueKey        |   String   |   第三方唯一用户标识（必选）   |
 | deviceConfig        |   list   |   设备清单（非必选）   |
 | groupConfig        |   list   |   组清单（非必选）   |
 | sceneConfig        |   list   |   场景清单（非必选）   |
@@ -235,8 +229,6 @@ curl -X POST \
 | 请求，method=GET|url=/consumer/open/obox |param: |
 | --------   | -----:  | :----:  |
 | 参数      | 参数类型   |   说明     |
-| access_token        |   String   |   token（公司专属）   |
-| uniqueKey        |   String   |   第三方唯一用户标识（必选）   |
 | 响应数据        |   响应数据类型   |   说明   |
 | message        |   String   |   消息   |
 | status        |   int   |   消息类型   |
@@ -267,8 +259,6 @@ curl -X POST \
 | 请求，method=DELETE|url=/consumer/open/obox |param:body |
 | --------   | -----:  | :----:  |
 | 参数      | 参数类型   |   说明     |
-| access_token        |   String   |   token（公司专属）   |
-| uniqueKey        |   String   |   第三方唯一用户标识（必选）   |
 | oboxSerialId        |   String   |   obox序列号（必选）   |
 | 响应数据        |   响应数据类型   |   说明   |
 | message        |   String   |   消息   |
@@ -312,8 +302,6 @@ curl -X DELETE \
 | 请求，method=POST|url=/consumer/open/device |param:body |
 | --------   | -----:  | :----:  |
 | 参数      | 参数类型   |   说明     |
-| access_token        |   String   |   token（公司专属）   |
-| uniqueKey        |   String   |   第三方唯一用户标识（必选）   |
 | oboxSerialId        |   String   |   obox序列号（必选）   |
 | deviceType        |   String   |   设备父类型（非必选）   |
 | deviceChildType        |   String   |   设备子类型（非必选）   |
@@ -356,8 +344,6 @@ curl -X POST \
 | 请求，method=POST|url=/consumer/open/intelligentRemoteUser |param:body |
 | --------   | -----:  | :----:  |
 | 参数      | 参数类型   |   说明     |
-| access_token        |   String   |   token（公司专属）   |
-| uniqueKey        |   String   |   第三方唯一用户标识（必选）   |
 | serialId        |   String   |   门锁序列号（必选）   |
 | nickName        |   String   |   昵称（必选）   |
 | startTime        |   String   |   开始时间（必选）   |
@@ -433,8 +419,6 @@ curl -X POST \
 | 请求，method=PUT|url=/consumer/open/intelligentRemoteUser |param:body |
 | --------   | -----:  | :----:  |
 | 参数      | 参数类型   |   说明     |
-| access_token        |   String   |   token（公司专属）   |
-| uniqueKey        |   String   |   第三方唯一用户标识（必选）   |
 | serialId        |   String   |   门锁序列号（必选）   |
 | nickName        |   String   |   昵称（必选）   |
 | startTime        |   String   |   开始时间（必选）   |
