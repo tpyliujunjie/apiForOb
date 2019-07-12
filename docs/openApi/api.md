@@ -25,6 +25,11 @@ https://alicloud.on-bright.com	为生产域名
 	Mq topic : "ob-smart."+access_token+"."+uniqueKey
 ```
 
+## 公共参数说明
+```html
+	除了登录接口，其他接口均含有access_token和uniqueKey两个参数，这两个参数拼接在url后面，类似：/consumer/open/registAliDev?access_token=fsdffadaffaf&uniqueKey=qwervd
+```
+
 ## 登录
 
 | 请求，method=POST|url=/oauth/token |param:body |
@@ -92,7 +97,6 @@ curl -X POST \
 ##### 请求示例body结构体
 ```html
 {
-	"uniqueKey":"fasdfsdfasd",
 	"type": "OBOX",
 	"zone": "Asia/Shanghai"
 }
@@ -100,7 +104,7 @@ curl -X POST \
 ##### 请求链路
 ```html
 curl -X POST \
-  'https://aliiot.on-bright.com/consumer/open/registAliDev?access_token=1b3494a4-a18a-4b24-8e57-a12d52c1afed' \
+  'https://aliiot.on-bright.com/consumer/open/registAliDev?access_token=1b3494a4-a18a-4b24-8e57-a12d52c1afed&uniqueKey=rewrewrewqr' \
   -H 'Accept: */*' \
   -H 'Authorization: Basic VGVuY2VudDpUZW5jZW50' \
   -H 'Cache-Control: no-cache' \
@@ -112,7 +116,6 @@ curl -X POST \
   -H 'cache-control: no-cache' \
   -H 'content-length: 136' \
   -d '{
-	"uniqueKey":"fasdfsdfasd",
 	"type": "OBOX",
 	"zone": "Asia/Shanghai"
 }'
@@ -141,14 +144,13 @@ curl -X POST \
 ##### 请求示例body结构体
 ```html
 {
-	"uniqueKey":"fasdfsdfasd",
 	"serialId": "c033000000"
 }
 ```
 ##### 请求链路
 ```html
 curl -X DELETE \
-  'https://aliiot.on-bright.com/consumer/open/device?access_token=1b3494a4-a18a-4b24-8e57-a12d52c1afed' \
+  'https://aliiot.on-bright.com/consumer/open/device?access_token=1b3494a4-a18a-4b24-8e57-a12d52c1afed&uniqueKey=fdsfads' \
   -H 'Accept: */*' \
   -H 'Authorization: Basic VGVuY2VudDpUZW5jZW50' \
   -H 'Cache-Control: no-cache' \
@@ -161,7 +163,6 @@ curl -X DELETE \
   -H 'content-length: 136' \
   -d '{
 	"serialId": "c033000000"
-	"uniqueKey":"fadsfdsfdsafdas"
 }'
 ```
 ## 添加obox
@@ -170,10 +171,10 @@ curl -X DELETE \
 | --------   | -----:  | :----:  |
 | 参数      | 参数类型   |   说明     |
 | access_token        |   String   |   token（公司专属）   |
+| uniqueKey        |   String   |   第三方唯一用户标识（必选）   |
 | deviceConfig        |   list   |   设备清单（非必选）   |
 | groupConfig        |   list   |   组清单（非必选）   |
 | sceneConfig        |   list   |   场景清单（非必选）   |
-| uniqueKey        |   String   |   第三方唯一用户标识（必选）   |
 | oboxSerialId        |   String   |   obox序列号（必选）   |
 | oboxName        |   String   |   obox名称（必选）   |
 | oboxVersion        |   String   |   obox版本（必选）   |
@@ -196,7 +197,6 @@ curl -X DELETE \
 ##### 请求示例body结构体
 ```html
 {
-	"uniqueKey":"fasdfsdfasd",
 	"deviceConfig": [],
 	"groupConfig": [],
 	"oboxName": "OBOX33c0",
@@ -209,7 +209,7 @@ curl -X DELETE \
 ##### 请求链路
 ```html
 curl -X POST \
-  'https://aliiot.on-bright.com/consumer/open/obox?access_token=1b3494a4-a18a-4b24-8e57-a12d52c1afed' \
+  'https://aliiot.on-bright.com/consumer/open/obox?access_token=1b3494a4-a18a-4b24-8e57-a12d52c1afed&uniqueKey=ewqf' \
   -H 'Accept: */*' \
   -H 'Authorization: Basic VGVuY2VudDpUZW5jZW50' \
   -H 'Cache-Control: no-cache' \
@@ -227,13 +227,12 @@ curl -X POST \
 	"oboxSerialId": "c033000000",
 	"oboxStatus": "1",
 	"oboxversion": "0a0219080a253002",
-	"sceneConfig": [],
-	"uniqueKey":"fadsfdsfdsafdas"
+	"sceneConfig": []
 }'
 ```
 ## 查询obox
 
-| 请求，method=GET|url=/consumer/open/obox/{uniqueKey} |param:body |
+| 请求，method=GET|url=/consumer/open/obox |param: |
 | --------   | -----:  | :----:  |
 | 参数      | 参数类型   |   说明     |
 | access_token        |   String   |   token（公司专属）   |
@@ -286,14 +285,13 @@ curl -X POST \
 ##### 请求示例body结构体
 ```html
 {
-	"uniqueKey":"fasdfsdfasd",
 	"oboxSerialId": "c033000000"
 }
 ```
 ##### 请求链路
 ```html
 curl -X DELETE \
-  'https://aliiot.on-bright.com/consumer/open/obox?access_token=1b3494a4-a18a-4b24-8e57-a12d52c1afed' \
+  'https://aliiot.on-bright.com/consumer/open/obox?access_token=1b3494a4-a18a-4b24-8e57-a12d52c1afed&uniqueKey=fdsaf' \
   -H 'Accept: */*' \
   -H 'Authorization: Basic VGVuY2VudDpUZW5jZW50' \
   -H 'Cache-Control: no-cache' \
@@ -305,8 +303,7 @@ curl -X DELETE \
   -H 'cache-control: no-cache' \
   -H 'content-length: 136' \
   -d '{
-	"oboxSerialId": "c033000000",
-	"uniqueKey":"fadsfdsfdsafdas"
+	"oboxSerialId": "c033000000"
 }'
 ```
 
@@ -333,14 +330,13 @@ curl -X DELETE \
 ##### 请求示例body结构体
 ```html
 {
-	"uniqueKey":"fasdfsdfasd",
 	"oboxSerialId": "c033000000"
 }
 ```
 ##### 请求链路
 ```html
 curl -X POST \
-  'https://aliiot.on-bright.com/consumer/open/device?access_token=1b3494a4-a18a-4b24-8e57-a12d52c1afed' \
+  'https://aliiot.on-bright.com/consumer/open/device?access_token=1b3494a4-a18a-4b24-8e57-a12d52c1afed&uniqueKey=dfasdf' \
   -H 'Accept: */*' \
   -H 'Authorization: Basic VGVuY2VudDpUZW5jZW50' \
   -H 'Cache-Control: no-cache' \
@@ -352,7 +348,6 @@ curl -X POST \
   -H 'cache-control: no-cache' \
   -H 'content-length: 136' \
   -d '{
-	"uniqueKey":"fasdfsdfasd",
 	"oboxSerialId": "c033000000"
 }'
 ```
@@ -401,7 +396,6 @@ curl -X POST \
 ##### 请求示例body结构体
 ```html
 {
-	"uniqueKey":"fasdfsdfasd",
 	"nickName": "呃呃",
 	"startTime": "1550573820000",
 	"endTime": "1550841360000",
@@ -413,7 +407,7 @@ curl -X POST \
 ##### 请求链路
 ```html
 curl -X POST \
-  'https://aliiot.on-bright.com/consumer/open/intelligentRemoteUser?access_token=1b3494a4-a18a-4b24-8e57-a12d52c1afed' \
+  'https://aliiot.on-bright.com/consumer/open/intelligentRemoteUser?access_token=1b3494a4-a18a-4b24-8e57-a12d52c1afed&uniqueKey=fdsfasfa' \
   -H 'Accept: */*' \
   -H 'Authorization: Basic VGVuY2VudDpUZW5jZW50' \
   -H 'Cache-Control: no-cache' \
@@ -426,7 +420,6 @@ curl -X POST \
   -H 'cookie: JSESSIONID=5BC8BA7B9382E508E79179CDD84F7C1A' \
   -b JSESSIONID=5BC8BA7B9382E508E79179CDD84F7C1A \
   -d '{
-	"uniqueKey":"fasdfsdfasd",
 	"nickName": "呃呃",
 	"startTime": "1550573820000",
 	"endTime": "1550841360000",
@@ -483,7 +476,6 @@ curl -X POST \
 ##### 请求示例body结构体
 ```html
 {
-	"uniqueKey":"fasdfsdfasd",
 	"nickName": "呃呃",
 	"startTime": "1550573820000",
 	"endTime": "1550841360000",
@@ -496,7 +488,7 @@ curl -X POST \
 ##### 请求链路
 ```html
 curl -X PUT \
-  'https://aliiot.on-bright.com/consumer/open/intelligentRemoteUser?access_token=1b3494a4-a18a-4b24-8e57-a12d52c1afed' \
+  'https://aliiot.on-bright.com/consumer/open/intelligentRemoteUser?access_token=1b3494a4-a18a-4b24-8e57-a12d52c1afed&uniqueKey=fasfdfas' \
   -H 'Accept: */*' \
   -H 'Authorization: Basic VGVuY2VudDpUZW5jZW50' \
   -H 'Cache-Control: no-cache' \
@@ -504,7 +496,6 @@ curl -X PUT \
   -H 'Content-Type: application/json' \
   -H 'Host: aliiot.on-bright.com' \
   -d '{
-	"uniqueKey":"fasdfsdfasd",
 	"nickName": "呃呃",
 	"startTime": "1550573820000",
 	"endTime": "1550841360000",
