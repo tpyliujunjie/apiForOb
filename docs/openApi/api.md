@@ -209,7 +209,7 @@ curl -X DELETE \
 ##### 请求链路
 ```html
 curl -X POST \
-  'https://aliiot.on-bright.com/consumer/open/add_obox?access_token=1b3494a4-a18a-4b24-8e57-a12d52c1afed' \
+  'https://aliiot.on-bright.com/consumer/open/obox?access_token=1b3494a4-a18a-4b24-8e57-a12d52c1afed' \
   -H 'Accept: */*' \
   -H 'Authorization: Basic VGVuY2VudDpUZW5jZW50' \
   -H 'Cache-Control: no-cache' \
@@ -514,5 +514,8 @@ curl -X PUT \
 	"pin":10
 }'
 ```
-#还未完成接口 
+
+##还未完成接口 
+
+##query_intelligent_fingerHome、query_intelligent_openRecord、query_intelligent_warningRecord、query_intelligent_useringRecord、edit_intelligent_user、send_intelligent_validateCode、add_intelligent_authPwd、query_intelligent_authPwd、query_intelligent_remote_unLocking、reset_intelligent_pwd、query_intelligent_push_list、modify_intelligent_push、send_remote_pwd、reset_intelligent_pwd_by_code
 
