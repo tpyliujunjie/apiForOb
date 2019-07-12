@@ -218,7 +218,38 @@ curl -X POST \
 	"uniqueKey":"fadsfdsfdsafdas"
 }'
 ```
+## 查询obox
 
+| 请求，method=GET|url=/consumer/open/obox/{uniqueKey} |param:body |
+| --------   | -----:  | :----:  |
+| 参数      | 参数类型   |   说明     |
+| access_token        |   String   |   token（公司专属）   |
+| uniqueKey        |   String   |   第三方唯一用户标识（必选）   |
+| 响应数据        |   响应数据类型   |   说明   |
+| message        |   String   |   消息   |
+| status        |   int   |   消息类型   |
+| data        |   json   |    data |
+
+##### 返回信息结构体
+```html
+{
+	"message": "select success",
+	"status": 200,
+	"data": {
+		"oboxs": [{
+			"oboxName": "MBOX3391",
+			"oboxSerialId": "9133000000",
+			"oboxVersion": "0a02154400052002",
+			"oboxStatus": 0
+		}, {
+			"oboxName": "OBOX9468",
+			"oboxSerialId": "6894000000",
+			"oboxVersion": "0a0218360a852002",
+			"oboxStatus": 0
+		}]
+	}
+}
+```
 ## 删除obox
 
 | 请求，method=DELETE|url=/consumer/open/obox |param:body |
