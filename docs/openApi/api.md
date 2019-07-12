@@ -22,7 +22,7 @@ https://alicloud.on-bright.com	为生产域名
 
 ##### MqTopic
 ```html
-	Mq topic : "ob-smart."+access_token+"&"+uniqueKey
+	Mq topic : "ob-smart."+access_token+"."+uniqueKey
 ```
 
 ## 登录
@@ -514,3 +514,5 @@ curl -X PUT \
 	"pin":10
 }'
 ```
+## ============还未完成接口============================
+
