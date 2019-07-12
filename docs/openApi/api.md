@@ -12,6 +12,19 @@ permalink: /api
 https://aliiot.on-bright.com	为测试域名
 https://alicloud.on-bright.com	为生产域名
 
+## Mq说明
+
+| Mq topic说明| | |
+| --------   | -----:  | :----:  |
+| 参数      | 参数类型   |   说明     |
+| access_token        |   String   |      |
+| uniqueKey        |   String   |  第三方唯一用户标识     |
+
+##### MqTopic
+```html
+	Mq topic : "ob-smart."+access_token+"&"+uniqueKey
+```
+
 ## 登录
 
 | 请求，method=POST|url=/oauth/token |param:body |
