@@ -14,23 +14,18 @@ https://alicloud.on-bright.com	为生产域名
 
 ## Mq说明
 
-| Mq topic说明| | |
-| --------   | -----:  | :----:  |
-| 参数      | 参数类型   |   说明     |
-| access_token        |   String   |      |
-| uniqueKey        |   String   |  第三方唯一用户标识     |
+维持之前的Mq协议
 
-##### MqTopic
+ 
+
+## 登录流程
 ```html
-	Mq topic : "ob-smart."+access_token+"."+uniqueKey
+	1.首先使用oauth2的客户端简化模式获取通用token
+	2.使用通用token和uniqueKey组合登录换取第二个token（所有接口使用这个token）
+	说明：第一个登录和第二个登录必须是同一个头文件；第二只有客户端简化模式换取的token才可以换取第二个token
 ```
 
-## 公共参数说明
-```html
-	除了登录接口，其他接口均含有access_token和uniqueKey两个参数，这两个参数拼接在url后面，类似：/consumer/open/registAliDev?access_token=fsdffadaffaf&uniqueKey=qwervd
-```
-
-## 登录
+## 客户端简化登录
 
 | 请求，method=POST|url=/oauth/token |param:body |
 | --------   | -----:  | :----:  |
@@ -62,6 +57,49 @@ curl -X POST \
   -H 'Host: aliiot.on-bright.com' \
 ```
 
+
+## 二次登录
+
+| 请求，method=POST|url=/login/company |param:param |
+| --------   | -----:  | :----:  |
+| 参数      | 参数类型   |   说明     |
+| accessToken        |   String   |    简化模式token  |
+| uniqueKey        |   String   |      |
+| 响应数据        |   响应数据类型   |   说明   |
+| access_token        |   String   |      |
+| token_type        |   String   |       |
+| expires_in        |   int   |      |
+| scope        |   String   |     域  |
+| refresh_token        |   String   |     刷新token  |
+
+##### 返回信息结构体
+```html
+{
+    "access_token": "3ec25afa-f38f-4bdc-84e1-909b80674827",
+    "token_type": "bearer",
+    "refresh_token": "5939feeb-6154-4454-9b8e-610da71693a4",
+    "expires_in": 594089,
+    "scope": "company"
+}
+```
+##### 请求链路
+```html
+curl -X POST \
+  'https://10.10.92.161:8401/login/company?accessToken=1b3494a4-a18a-4b24-8e57-a12d52c1afed&uniqueKey=fdasfsadfasdfas' \
+  -H 'Accept: */*' \
+  -H 'Authorization: Basic VGVuY2VudDpUZW5jZW50' \
+  -H 'Cache-Control: no-cache' \
+  -H 'Connection: keep-alive' \
+  -H 'Content-Type: application/json' \
+  -H 'Host: 10.10.92.161:8401' \
+  -H 'Postman-Token: 1b0768d7-883a-4fe8-8913-5fba33121daa,0d299ff4-93b8-4e93-8964-af05777baa33' \
+  -H 'User-Agent: PostmanRuntime/7.15.0' \
+  -H 'accept-encoding: gzip, deflate' \
+  -H 'cache-control: no-cache' \
+  -H 'content-length: 136' \
+  -H 'cookie: JSESSIONID=4224DD774A426B636ED9596C7AC918FE' \
+  -b JSESSIONID=4224DD774A426B636ED9596C7AC918FE
+```
 ## 注册ali设备
 
 | 请求，method=POST|url=/consumer/open/registAliDev |param:body |
@@ -345,6 +383,7 @@ curl -X POST \
 | --------   | -----:  | :----:  |
 | 参数      | 参数类型   |   说明     |
 | serialId        |   String   |   门锁序列号（必选）   |
+| authToken        |   String   |   门锁token   |
 | nickName        |   String   |   昵称（必选）   |
 | startTime        |   String   |   开始时间（必选）   |
 | endTime        |   String   |   结束时间（必选）   |
@@ -363,6 +402,7 @@ curl -X POST \
 	"status": 201,
 	"data": {
 		"remoteUser":{
+			"id":123
 			"serialId":"dfsfdsfsdfs",
 			"nickName":"fsde",
 			"pin":11,
@@ -383,6 +423,8 @@ curl -X POST \
 ```html
 {
 	"nickName": "呃呃",
+	"serialId":"fdsfsadfsadfas",
+	"authToken":"fdsfasd2334dfdsfasfdsafdsf1"
 	"startTime": "1550573820000",
 	"endTime": "1550841360000",
 	"times": 1,
@@ -407,6 +449,8 @@ curl -X POST \
   -b JSESSIONID=5BC8BA7B9382E508E79179CDD84F7C1A \
   -d '{
 	"nickName": "呃呃",
+	"serialId":"fdsfsadfsadfas",
+	"authToken":"fdsfasd2334dfdsfasfdsafdsf1"
 	"startTime": "1550573820000",
 	"endTime": "1550841360000",
 	"times": 1,
@@ -490,7 +534,4 @@ curl -X PUT \
 }'
 ```
 
-##还未完成接口 
-
-##query_intelligent_fingerHome、query_intelligent_openRecord、query_intelligent_warningRecord、query_intelligent_useringRecord、edit_intelligent_user、send_intelligent_validateCode、add_intelligent_authPwd、query_intelligent_authPwd、query_intelligent_remote_unLocking、reset_intelligent_pwd、query_intelligent_push_list、modify_intelligent_push、send_remote_pwd、reset_intelligent_pwd_by_code
-
+ 
