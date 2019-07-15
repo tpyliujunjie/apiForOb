@@ -85,7 +85,7 @@ curl -X POST \
 ##### 请求链路
 ```html
 curl -X POST \
-  'https://10.10.92.161:8401/login/company?accessToken=1b3494a4-a18a-4b24-8e57-a12d52c1afed&uniqueKey=fdasfsadfasdfas' \
+  'https://aliiot.on-bright.com/login/company?accessToken=1b3494a4-a18a-4b24-8e57-a12d52c1afed&uniqueKey=fdasfsadfasdfas' \
   -H 'Accept: */*' \
   -H 'Authorization: Basic VGVuY2VudDpUZW5jZW50' \
   -H 'Cache-Control: no-cache' \
